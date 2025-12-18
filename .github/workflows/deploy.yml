@@ -1,23 +1,29 @@
-# 단계 이름
+# 워크플로우 이름 (GitHub Actions 화면에 표시됨)
 name: GitHub Actions 실행시켜보기
 
-# 어떤 상황에서 실행시킬건지
-# main 브랜치에서 push가 될 때
+# 언제 이 워크플로우를 실행할지 정의
+# main 브랜치에 push 될 때 실행
 on:
   push:
     branches:
       - main
 
-# 내 job(이름이 My-Deploy-Job인)을 ubuntu-latest로 실행시키겠다
+# 실행할 Job들 정의
 jobs:
-    My-Deploy-Job:
-      runs-on: ubuntu-latest
+  # Job 이름 (자유롭게 지정 가능)
+  My-Deploy-Job:
+    # 이 Job을 실행할 Runner 환경
+    # GitHub가 제공하는 Ubuntu 가상머신
+    runs-on: ubuntu-latest
 
-      steps:
-        - name: Hello World # step 에 이름을 붙이는 기능
-          run: echo "Hello World" # 실행시킬 명령어 
+    # Job 안에서 실행할 단계들
+    steps:
+      # Step 1: 간단한 Hello World 출력
+      - name: Hello World # step에 이름을 붙이는 기능
+        run: echo "Hello World" # 실행시킬 명령어
 
-        - name: 여러 명령어 문장 작성하기
+      # Step 2: 여러 명령어를 한 번에 실행
+      - name: 여러 명령어 문장 작성하기
         run: |
           echo "Good"
           echo "Morning"
