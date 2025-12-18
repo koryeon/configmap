@@ -35,5 +35,10 @@ jobs:
         run: ls -la
 
 
+      - name: 환경변수 모두 출력
+        run: env
+
+
+
 
       
