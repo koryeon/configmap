@@ -8,6 +8,12 @@ on:
     branches:
       - main
 
+# GitHub -> settings -> secrets에 넣은 USER_PASSWORD
+env:
+  name: kosa
+  USERNAME: kosa
+  USER_PASSWORD: ${{secrets.USER_PASSWORD}}
+
 # 실행할 Job들 정의
 jobs:
   # Job 이름 (자유롭게 지정 가능)
@@ -40,6 +46,11 @@ jobs:
 
       - name: 환경변수 NAME 출력
         run: echo "USERNAME = ${{env.USERNAME}}"
+
+      - name: 시크릿 USER_PASSWORD 출력
+        run: |
+          echo "USER_PASSWORD = ${{env.USER_PASSWORD}}"
+          echo "USER_PASSWORD = ${{secrets.USER_PASSWORD}}"
 
 
 
