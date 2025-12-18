@@ -1,1 +1,25 @@
+# 단계 이름
 name: GitHub Actions 실행시켜보기
+
+# 어떤 상황에서 실행시킬건지
+# main 브랜치에서 push가 될 때
+on:
+  push:
+    branches:
+      - main
+
+# 내 job(이름이 My-Deploy-Job인)을 ubuntu-latest로 실행시키겠다
+jobs:
+    My-Deploy-Job:
+      runs-on: ubuntu-latest
+
+      steps:
+        - name: Hello World # step 에 이름을 붙이는 기능
+          run: echo "Hello World" # 실행시킬 명령어 
+
+        - name: 여러 명령어 문장 작성하기
+        run: |
+          echo "Good"
+          echo "Morning"
+
+      
